@@ -4,6 +4,8 @@ interface FeildsProps {
   fieldName: string;
   placeHolder: string;
   fieldType: string;
+  touchCheck: any;
+  errorCheck: any;
   empFormik: any;
 }
 
@@ -12,26 +14,29 @@ const EmployeeFields = ({
   fieldName,
   fieldType,
   placeHolder,
+  touchCheck,
+  errorCheck,
   empFormik,
 }: FeildsProps) => {
   return (
-    <div className="pop-up-field">
-      <div style={{ width: "4rem" }}>
-        <label htmlFor={fieldName} style={{ marginRight: "10px" }}>
-          {label}
-        </label>
+    <>
+      <div className="pop-up-field">
+        <div style={{ width: "4rem" }}>
+          <label htmlFor={fieldName} style={{ marginRight: "10px" }}>
+            {label}
+          </label>
+        </div>
+        <input
+          type={fieldType}
+          name={fieldName}
+          placeholder={placeHolder}
+          {...empFormik.getFieldProps(`${fieldName}`)}
+        />
       </div>
-      <input
-        type={fieldType}
-        name={fieldName}
-        placeholder={placeHolder}
-        onChange={empFormik.handleChange}
-        onBlur={empFormik.handleBlur}
-      />
-      {/* {touchedError  ? (
-        <div>{`empFormik.errors.${fieldName}`}</div>
-      ) : null} */}
-    </div>
+      {touchCheck && errorCheck ? (
+        <div className="pop-up-feild-error">{errorCheck}</div>
+      ) : null}
+    </>
   );
 };
 export default EmployeeFields;
