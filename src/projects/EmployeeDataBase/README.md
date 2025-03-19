@@ -33,3 +33,8 @@ Right Div
 - when ever a user name is clicked on left panel
 - Full details related to that user need to be shown
 - If pic is given then a pic need to shown or else a dummy one
+
+Tech stack used
+library: React(react formik, yup)
+state management: Zustand
+Styles(css): Scss
