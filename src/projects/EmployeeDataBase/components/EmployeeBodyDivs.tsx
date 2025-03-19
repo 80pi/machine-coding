@@ -1,9 +1,12 @@
+import EmployeeRightBlock from "./EmployeeRightBlock";
+import EmployeesLeftBlock from "./EmployeesLeftBlock";
+
 const EmployeeBodyDivs = () => {
   return (
     <>
       <div style={{ display: "flex" }}>
-        <div className="left-div">left blocl</div>
-        <div className="right-div">right blocl</div>
+        <EmployeesLeftBlock />
+        <EmployeeRightBlock />
       </div>
     </>
   );
